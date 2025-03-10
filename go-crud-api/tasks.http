@@ -1,0 +1,39 @@
+### Create TASK
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+    "title": "Task 2",
+    "description": "Description 2",
+    "completed": false,
+    "due_date": "2021-12-31T00:00:00Z"
+}
+
+### List Task
+GET http://localhost:8080/tasks
+Content-Type: application/json
+
+### Update Task
+PUT http://localhost:8080/tasks/67ce336c846661b29fe83061
+Content-Type: application/json
+
+{
+    "title": "Task 1 Updated",
+    "description": "Description 1 Updated",
+    "completed": false,
+    "due_date": "2021-12-31T00:00:00Z"
+}
+
+### Delete Task
+DELETE http://localhost:8080/tasks/67ce34d786074dac4a7bac27
+Content-Type: application/json
+
+{
+    "title": "Task 1 Updated",
+    "description": "Description 1 Updated",
+    "completed": false,
+    "due_date": "2021-12-31T00:00:00Z"
+}
+
+### SWAGGER
+GET http://localhost:8080/swagger/index.html
