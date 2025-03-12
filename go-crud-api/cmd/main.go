@@ -8,7 +8,6 @@ package main
 import (
 	"context"
 	"go-crud-api/models"
-	"log"
 	"net/http"
 	"time"
 
@@ -23,25 +22,9 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 var collection *mongo.Collection
-
-func connectDb() {
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-	if err != nil {
-		log.Println("Error on establishing connection to MongoDB")
-		log.Fatal(err)
-	}
-
-	_, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	collection = client.Database("taskdbs").Collection("tasks")
-	log.Println("Connected to MongoDB")
-}
 
 // @Summary Create a task
 // @Description Create a new task
