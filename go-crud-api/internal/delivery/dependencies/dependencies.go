@@ -13,7 +13,7 @@ import (
 
 func Setup() *dig.Container {
 	container := dig.New()
-	if err := container.Provide(infra.NewMongoDatabase()); err != nil {
+	if err := container.Provide(infra.NewMongoDatabase); err != nil {
 		log.Fatalf("Erro ao registrar MongoDB: %v", err)
 	}
 
@@ -27,7 +27,7 @@ func Setup() *dig.Container {
 		log.Fatalf("Erro ao registrar TaskUsecase: %v", err)
 	}
 
-	if err := container.Provide(handlers.NewTaskHandler()); err != nil {
+	if err := container.Provide(handlers.NewTaskHandler); err != nil {
 		log.Fatalf("Erro ao registrar TaskHandler: %v", err)
 	}
 
